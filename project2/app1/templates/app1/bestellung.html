@@ -1,0 +1,35 @@
+{% extends 'app1/base.html' %}
+
+{% block titel %} Neuer Titel{% endblock  %}
+{% block content %}
+<h1>Bitte geben Sie Ihre Bestellung ein</h1>
+<div class="container">
+    <div class="row">
+        <form>
+            <div class="mb-3">
+                <label for="kunde" class="form-label">Kunde</label>
+                <input type="text" class="form-control" id="kunde" aria-describedby="kundeHelp">
+                <div id="kundenHelp" class="form-text">Bitte geben Sie einen Kundennamen an</div>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Bitte einen Kundennamen auswählen</option>
+                        {% for zeile in Kunden%}
+                        <option value="{{zeile.id}}">{{zeile.name}}</option>
+                        {% endfor %}
+                    </select>
+             </div>
+            <div class="mb-3">
+                <label for="bestellung" class="form-label">Bestellung</label>
+                <input type="password" class="form-control" id="bestellung" aria-describedby="bestellungHelp">>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-danger">abbrechen</button>
+                <button type="button" class="btn btn-success">Neu</button>
+                </form>
+            </div>
+</div>
+
+{% endblock content %}
